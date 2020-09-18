@@ -8,6 +8,7 @@
 #define PIN_CAR_GREEN 4
 #define PIN_PEDESTRIAN_RED 5
 #define PIN_PEDESTRIAN_GREEN 3
+#define PIN_SPEAKER 8
     
 void setup() {
 
@@ -16,7 +17,6 @@ void setup() {
   pinMode(PIN_CAR_GREEN, OUTPUT);
   pinMode(PIN_PEDESTRIAN_RED, OUTPUT);
   pinMode(PIN_PEDESTRIAN_GREEN, OUTPUT);
-
 }
 
 void loop() {
@@ -29,23 +29,23 @@ void loop() {
   // iterate over the notes of the melody:
   for (int thisNote = 0; thisNote < 8; thisNote++) {
     int noteDuration = 1000/2;
-    tone(8, NOTE, noteDuration);
+    tone(PIN_SPEAKER, NOTE, noteDuration);
     digitalWrite(PIN_PEDESTRIAN_GREEN, HIGH);
     delay(500);
     digitalWrite(PIN_PEDESTRIAN_GREEN, LOW);
     delay(500);
-    noTone(8);
+    noTone(PIN_SPEAKER);
   }
   for (int thisNote = 0; thisNote < 12; thisNote++) {
     int noteDuration = 1000/4;
-    tone(8, NOTE, noteDuration);
+    tone(PIN_SPEAKER, NOTE, noteDuration);
     digitalWrite(PIN_PEDESTRIAN_GREEN, HIGH);
     delay(250);
     digitalWrite(PIN_PEDESTRIAN_GREEN, LOW);
     delay(250);
-    noTone(8);
+    noTone(PIN_SPEAKER);
   }  
-  tone(8, NOTE, 1000);
+  tone(PIN_SPEAKER, NOTE, 1000);
 
   digitalWrite(PIN_CAR_RED, LOW);
   digitalWrite(PIN_PEDESTRIAN_RED, HIGH);
